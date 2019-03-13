@@ -11,10 +11,8 @@ public class FallingRaindropSimulation : MonoBehaviour
 		var m = 0.00007;
 		var epsilon = 0.01;
 
-		_eulersMethod = new EulersMethod(
-			f_y_t: (double y, double t) =>  (g - k / m * y * y),
-			epsilon: epsilon
-			);
+		_eulersMethod = new EulersMethod(epsilon: epsilon);
+		_eulersMethod.SetupYdot(f_y_t: (double y, double t) =>  (g - k / m * y * y));
 	}
 
 	private void FixedUpdate()

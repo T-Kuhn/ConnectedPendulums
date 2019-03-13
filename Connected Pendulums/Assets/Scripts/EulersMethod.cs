@@ -6,13 +6,16 @@ public class EulersMethod
     private double _epsilon;
     public double Current_t, Current_y;
     
-    public EulersMethod(Func<double, double, double> f_y_t, double t_0 = 0.0, double y_0 = 0.0, double epsilon = 0.001)
+    public EulersMethod(double t_0 = 0.0, double y_0 = 0.0, double epsilon = 0.001)
     {
-        _f_y_t = f_y_t;
-        
         Current_t = t_0;
         Current_y = y_0;
         _epsilon = epsilon;
+    }
+
+    public void SetupYdot(Func<double, double, double> f_y_t)
+    {
+        _f_y_t = f_y_t;
     }
 
     public void CalculateNext()

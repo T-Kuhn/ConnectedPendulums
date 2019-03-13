@@ -26,8 +26,8 @@ public class DoublePendulum : MonoBehaviour
     private void LateUpdate()
     {
         // Angle setting via inspector (Debug)
-        Theta_1 = theta1;
-        Theta_2 = theta2;
+        //Theta_1 = theta1;
+        //Theta_2 = theta2;
         
         // joint2 is connected to the bottom of link1 (Endpoint1).
         _joint2.position = _endpoint1.position;
