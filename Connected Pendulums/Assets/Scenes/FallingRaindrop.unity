@@ -140,6 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd124523f6f4b6f4993b707f59139694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _epsilon: 0.00001
+  _iterations: 1500
+  _numericalSimulationType: 1
 --- !u!4 &25574636
 Transform:
   m_ObjectHideFlags: 0
