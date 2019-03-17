@@ -9,6 +9,8 @@
           <e p="DoublePendulumSimulation.cs" t="Include" />
           <e p="EulersMethod.cs" t="Include" />
           <e p="FallingRaindropSimulation.cs" t="Include" />
+          <e p="INumericalSimulation.cs" t="Include" />
+          <e p="RungeKutta.cs" t="Include" />
         </e>
       </e>
       <e p="Connected Pendulums.sln" t="IncludeFlat" />

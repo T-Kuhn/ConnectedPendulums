@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class EulersMethod : INumericalSimulation
+public class RungeKutta : INumericalSimulation
 {
     private Func<double, double, double> _f_y_t;
     private double _epsilon, _current_t, _current_y, _current_y_dot;
@@ -27,10 +27,15 @@ public class EulersMethod : INumericalSimulation
         // advance the time
         _current_t += _epsilon;
         
-        // calculate y dot
-        _current_y_dot = _f_y_t(_current_y, _current_t);
+        var k_1 = _epsilon * _f_y_t(_current_y, _current_t);
+        var k_2 = _epsilon * _f_y_t(_current_y + k_1 / 2.0, _current_t + _epsilon / 2.0);
+        var k_3 = _epsilon * _f_y_t(_current_y + k_2 / 2.0, _current_t + _epsilon / 2.0);
+        var k_4 = _epsilon * _f_y_t(_current_y + k_3, _current_t + _epsilon);
         
+        // calculate y dot
+        _current_y_dot = 1.0 / 6.0 * (k_1 + 2 * k_2 + 2 * k_3 + k_4) / _epsilon;
+
         // advance the y
-        _current_y = _current_y + _epsilon * _current_y_dot;
+        _current_y = _current_y + 1.0 / 6.0 * (k_1 + 2 * k_2 + 2 * k_3 + k_4);
     }
 }
