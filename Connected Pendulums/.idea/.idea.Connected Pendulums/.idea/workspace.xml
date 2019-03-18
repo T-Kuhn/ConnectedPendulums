@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d24c643-4624-40de-9b62-00389d7d2c3d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Connected Pendulums/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Connected Pendulums/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DoublePendulum.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DoublePendulum.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DoublePendulum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DoublePendulum.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DoublePendulumSimulation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DoublePendulumSimulation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EulersMethod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EulersMethod.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RungeKutta.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RungeKutta.cs" afterDir="false" />
-    </list>
+    <list default="true" id="4d24c643-4624-40de-9b62-00389d7d2c3d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$USER_HOME$/Desktop/TODO.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+            <state relative-caret-position="102">
+              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -182,12 +175,12 @@
       <workItem from="1552481506001" duration="3184000" />
       <workItem from="1552722192944" duration="3107000" />
       <workItem from="1552803916889" duration="6084000" />
-      <workItem from="1552916598457" duration="2322000" />
+      <workItem from="1552916598457" duration="2565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28760000" />
+    <option name="totallyTimeSpent" value="29003000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -304,8 +297,8 @@
     </entry>
     <entry file="file://$USER_HOME$/Desktop/TODO.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        <state relative-caret-position="102">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
         </state>
       </provider>
     </entry>
