@@ -12,7 +12,7 @@ public class DoublePendulumSimulation : MonoBehaviour
 
 	[SerializeField] double _epsilon;
 	[SerializeField] int _iterations;
-
+	
 	enum NumericalSimulationType
 	{
 		EulersMethod, RungeKutta
@@ -28,18 +28,21 @@ public class DoublePendulumSimulation : MonoBehaviour
 		var m_2 = 1.0;
 		var l_1 = 1.0;
 		var l_2 = 1.0;
+
+		var initialTheta1 = _doublePendulum.Theta_1;
+		var initialTheta2 = _doublePendulum.Theta_2;
 		
-		_NumericalSimLambda1 = GetSimulation();
+		_NumericalSimLambda1 = GetNumericalSimulator();
 		_NumericalSimLambda1.Setup(t_0: 0.0, y_0: 0.0, epsilon: _epsilon);
 
-		_NumericalSimuLambda2 = GetSimulation();
+		_NumericalSimuLambda2 = GetNumericalSimulator();
 		_NumericalSimuLambda2.Setup(t_0: 0.0, y_0: 0.0, epsilon: _epsilon);
 		
-		_NumericalSimTheta1 = GetSimulation();
-		_NumericalSimTheta1.Setup(t_0: 0.0, y_0: Math.PI / 2.0, epsilon: _epsilon);
+		_NumericalSimTheta1 = GetNumericalSimulator();
+		_NumericalSimTheta1.Setup(t_0: 0.0, y_0: initialTheta1, epsilon: _epsilon);
 		
-		_NumericalSimTheta2 = GetSimulation();
-		_NumericalSimTheta2.Setup(t_0: 0.0, y_0: Math.PI / 2.0, epsilon: _epsilon);
+		_NumericalSimTheta2 = GetNumericalSimulator();
+		_NumericalSimTheta2.Setup(t_0: 0.0, y_0: initialTheta2, epsilon: _epsilon);
 
 		// eq:9
 		/*
@@ -95,7 +98,7 @@ public class DoublePendulumSimulation : MonoBehaviour
 		
 	}
 
-	private INumericalSimulation GetSimulation()
+	private INumericalSimulation GetNumericalSimulator()
 	{
 		switch (_numericalSimulationType)
 		{
@@ -121,7 +124,7 @@ public class DoublePendulumSimulation : MonoBehaviour
             _NumericalSimuLambda2.CalculateNext();
 		}
 
-		_doublePendulum.Theta_1 = _NumericalSimTheta1.Current_y * 180.0 / Math.PI;
-		_doublePendulum.Theta_2 = _NumericalSimTheta2.Current_y * 180.0 / Math.PI;
+		_doublePendulum.Theta_1 = _NumericalSimTheta1.Current_y;
+		_doublePendulum.Theta_2 = _NumericalSimTheta2.Current_y;
 	}
 }

@@ -141,8 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb08eeec5e2446044a122db9cb7c7c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theta1: 0
-  theta2: 0
   _joint1: {fileID: 2082937579}
   _joint2: {fileID: 1113510026}
   _endpoint1: {fileID: 1947155692}
@@ -511,7 +509,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.7, z: -20.92}
+  m_LocalPosition: {x: -1.42, y: 9.7, z: -20.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -804,7 +802,7 @@ MonoBehaviour:
   _doublePendulum: {fileID: 1519672635}
   _epsilon: 0.00001
   _iterations: 1500
-  _numericalSimulationType: 0
+  _numericalSimulationType: 1
 --- !u!114 &1519672635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,8 +814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb08eeec5e2446044a122db9cb7c7c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theta1: 0
-  theta2: 0
   _joint1: {fileID: 1613864716}
   _joint2: {fileID: 1906846988}
   _endpoint1: {fileID: 1334960495}
