@@ -5,6 +5,12 @@ public class DoublePendulumSimulation : MonoBehaviour
 {
 	[SerializeField] private DoublePendulum _doublePendulum;
 	
+    private double m_1 = 1.0;
+    private double m_2 = 1.0;
+    private double l_1 = 1.0;
+    private double l_2 = 1.0;
+    private double g = 9.81;
+	
 	private INumericalSimulation _NumericalSimLambda1;
 	private INumericalSimulation _NumericalSimuLambda2;
 	private INumericalSimulation _NumericalSimTheta1;
@@ -12,6 +18,10 @@ public class DoublePendulumSimulation : MonoBehaviour
 
 	[SerializeField] double _epsilon;
 	[SerializeField] int _iterations;
+
+	[SerializeField] private double _kineticEnergy;
+	[SerializeField] private double _potentialEnergy;
+	[SerializeField] private double _totalEnergy;
 	
 	enum NumericalSimulationType
 	{
@@ -22,12 +32,6 @@ public class DoublePendulumSimulation : MonoBehaviour
 	
 	private void Start()
 	{
-		var g = 9.81;
-
-		var m_1 = 1.0;
-		var m_2 = 1.0;
-		var l_1 = 1.0;
-		var l_2 = 1.0;
 
 		var initialTheta1 = _doublePendulum.Theta_1;
 		var initialTheta2 = _doublePendulum.Theta_2;
@@ -86,9 +90,10 @@ public class DoublePendulumSimulation : MonoBehaviour
 		*/
 		_NumericalSimuLambda2.SetupYDot((double lambda2, double t) =>
 			(m_2 * l_1 * _NumericalSimLambda1.Current_y * _NumericalSimLambda1.Current_y *
-			Math.Sin(_NumericalSimTheta1.Current_y - _NumericalSimTheta2.Current_y)
-			- m_2 * l_1 * _NumericalSimLambda1.Current_y_dot * Math.Cos(_NumericalSimTheta1.Current_y - _NumericalSimTheta2.Current_y)
-			- m_2 * g * Math.Sin(_NumericalSimTheta2.Current_y))
+			 Math.Sin(_NumericalSimTheta1.Current_y - _NumericalSimTheta2.Current_y)
+			 - m_2 * l_1 * _NumericalSimLambda1.Current_y_dot *
+			 Math.Cos(_NumericalSimTheta1.Current_y - _NumericalSimTheta2.Current_y)
+			 - m_2 * g * Math.Sin(_NumericalSimTheta2.Current_y))
 			/
 			(m_2 * l_2));
 
@@ -117,12 +122,27 @@ public class DoublePendulumSimulation : MonoBehaviour
 	{
 		for (int i = 0; i < _iterations; i++)
 		{
-            _NumericalSimTheta1.CalculateNext();
-            _NumericalSimTheta2.CalculateNext();
+			_NumericalSimTheta1.CalculateNext();
+			_NumericalSimTheta2.CalculateNext();
 
-            _NumericalSimLambda1.CalculateNext();
-            _NumericalSimuLambda2.CalculateNext();
+			_NumericalSimLambda1.CalculateNext();
+			_NumericalSimuLambda2.CalculateNext();
 		}
+
+		// potential energy is:
+		// V_p = - (m_1 + m_2) * g * l_1 * cos(\theta_1) - m_2 * g * l_2 * cos(\theta2)
+		_potentialEnergy = -(m_1 + m_2) * g * l_1 * Math.Cos(_NumericalSimTheta1.Current_y)
+		                   - m_2 * g * l_2 * Math.Cos(_NumericalSimTheta2.Current_y);
+
+		// lambda is the speed of the rotation in 2PI/sec
+		// V_k = 1/2 * m_1 * l_1^2 * Lamba_1^2 + 1/2 * m_2 * (l_1^2 * Lambda_1^2 + l_2^2 * Lambda_2^2 + 2* l_1 * l_2 * lambda1 * lambda2 * Math.Cos(theta1 - theta2))
+		_kineticEnergy = 0.5 * m_1 * l_1 * l_1 * _NumericalSimLambda1.Current_y * _NumericalSimLambda1.Current_y +
+		                 0.5 * m_2 * (l_1 * l_1 * _NumericalSimLambda1.Current_y * _NumericalSimLambda1.Current_y +
+		                 l_2 * l_2 * _NumericalSimuLambda2.Current_y * _NumericalSimuLambda2.Current_y +
+		                 2 * l_1 * l_2 * _NumericalSimLambda1.Current_y * _NumericalSimuLambda2.Current_y *
+		                 Math.Cos(_NumericalSimTheta1.Current_y -_NumericalSimTheta2.Current_y));
+
+		_totalEnergy = _kineticEnergy + _potentialEnergy;
 
 		_doublePendulum.Theta_1 = _NumericalSimTheta1.Current_y;
 		_doublePendulum.Theta_2 = _NumericalSimTheta2.Current_y;
