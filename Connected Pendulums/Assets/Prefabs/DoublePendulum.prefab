@@ -169,7 +169,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1800765611261504}
-  m_LocalRotation: {x: 0, y: 0, z: -0.9390994, w: 0.34364572}
+  m_LocalRotation: {x: 0, y: 0, z: -0.47942555, w: 0.87758255}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -184,8 +184,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813275472214650}
-  m_LocalRotation: {x: 0, y: 0, z: -0.059964005, w: 0.99820054}
-  m_LocalPosition: {x: -3.87261, y: 4.5828915, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.9489846, w: 0.31532237}
+  m_LocalPosition: {x: -5.048827, y: -3.2418137, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4160492736733108}
@@ -342,11 +342,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doublePendulum: {fileID: 114339261967308852}
   _epsilon: 0.0001
-  _iterations: 150
+  _iterations: 200
   _kineticEnergy: 0
   _potentialEnergy: 0
   _totalEnergy: 0
-  _numericalSimulationType: 1
+  _numericalSimulationType: 0
 --- !u!114 &114339261967308852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -361,5 +361,9 @@ MonoBehaviour:
   _joint1: {fileID: 4490965804958848}
   _joint2: {fileID: 4589226719416114}
   _endpoint1: {fileID: 4330021592345940}
-  theta1: -2.44
-  theta2: -0.12
+  _theta1: -1
+  _theta2: -2.5
+  _link1Length: 1
+  _link2Length: 1
+  _mass1: 1
+  _mass2: 1

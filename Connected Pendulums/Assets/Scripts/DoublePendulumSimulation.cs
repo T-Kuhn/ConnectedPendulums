@@ -9,7 +9,7 @@ public class DoublePendulumSimulation : MonoBehaviour
 	private double _m_2 = 1.0;
 	private double _l_1 = 0.5;
 	private double _l_2 = 1.0;
-	private double _g = 9.81;
+	[SerializeField] private double _g = 9.81;
 
 	private INumericalSimulation _NumericalSimLambda1;
 	private INumericalSimulation _NumericalSimuLambda2;
