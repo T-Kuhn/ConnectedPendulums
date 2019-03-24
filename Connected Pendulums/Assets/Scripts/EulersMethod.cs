@@ -24,13 +24,13 @@ public class EulersMethod : INumericalSimulation
 
     public void CalculateNext()
     {
-        // advance the time
-        _current_t += _epsilon;
-        
         // calculate y dot
         _current_y_dot = _f_y_t(_current_y, _current_t);
         
         // advance the y
         _current_y = _current_y + _epsilon * _current_y_dot;
+        
+        // advance the time
+        _current_t += _epsilon;
     }
 }
